@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Gap Demo</title>
-        <script type="text/javascript" src="cordova-2.0.0.js"></script>
-        <script type="text/javascript" src="js/zepto.min.js"></script>
-        <script type="text/javascript" src="js/iscroll.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </head>
-    <body>
-        <div id="viewport">
-            <div id="scroller">
-                <div id="menu" class="page">
-                    <ul>
-                        <li>Accelerometer</li>
-                        <li>Camera</li>
-                        <li>Compass</li>
-                        <li>Contacts</li>
-                        <li>Gallery</li>
-                        <li>Location</li>
-                        <li>Recorder</li>
-                    </ul>
-                </div>
-                <div id="accelerometer" class="page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>Gap Demo</title>
+    <script type="text/javascript" src="cordova-2.0.0.js"></script>
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
-                </div>
-            </div>
+    <script id="info-template" type="text/x-handlebars-template">
+        <ul>
+            <li>Name: {{deviceName}}</li>
+            <li>Platform: {{devicePlatform}}</li>
+            <li>Version: {{deviceVersion}}</li>
+        </ul>
+    </script>
 
-        </div>
-    </body>
+</head>
+<body>
+
+<div id="menu" class="page">
+    <ul>
+        <li><a href="#info">Info</a></li>
+    </ul>
+</div>
+
+<div id="info" class="page">
+
+</div>
+
+</body>
 </html>
