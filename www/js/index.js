@@ -1,10 +1,21 @@
-$(function(){
+(function(){
     //registering namespace
     var root = window || global || this;
     if (!root.pgdemo) {
         root.pgdemo = {};
     }
     var pgdemo = root.pgdemo;
+
+    if (root.device) {
+        $(document).on("deviceready", f);
+    } else {
+        $(f);
+    }
+
+
+function f(){
+
+    alert("app!");
 
     var InfoModel = Backbone.Model.extend({
         defaults: {
@@ -90,4 +101,5 @@ $(function(){
 
     Backbone.history.start();
 
-});
+};
+}());
