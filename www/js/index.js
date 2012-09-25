@@ -7,7 +7,9 @@
     var pgdemo = root.pgdemo;
 
     if (root.device) {
-        document.addEventListener("deviceready", f);
+        document.addEventListener("deviceready", function(){
+            $(f);
+        });
     } else {
         $(f);
     }
