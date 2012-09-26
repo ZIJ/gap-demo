@@ -8,6 +8,19 @@
     <title>Gap Demo</title>
     <script type="text/javascript" src="cordova-2.0.0.js"></script>
     <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script id="info-template" type="text/x-handlebars-template">
+        <ul>
+            <li>Name: {{deviceName}}</li>
+            <li>Platform: {{devicePlatform}}</li>
+            <li>Version: {{deviceVersion}}</li>
+        </ul>
+    </script>
 
 </head>
 <body>
@@ -15,7 +28,13 @@
 <img src="http://performancetrainingsystems.net/images/Snowboard2.jpg" />
 
 <div id="menu" class="page">
-    <h1>Heading</h1>
+    <ul>
+        <li><a href="#info">Info</a></li>
+    </ul>
+</div>
+
+<div id="info" class="page">
+
 </div>
 
 </body>
