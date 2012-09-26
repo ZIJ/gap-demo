@@ -17,7 +17,7 @@
 
 function f(){
 
-    alert("it works!");
+    alert("Does it work?");
 
 }
 }());
