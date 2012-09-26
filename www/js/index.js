@@ -70,11 +70,11 @@
                 try {
                     navigator.accelerometer.watchAcceleration(function(acceleration){
                         that.set({
-                            x: acceleration.x,
-                            y: acceleration.y,
-                            z: acceleration.z
+                            x: Math.round(acceleration.x * 100) / 100,
+                            y: Math.round(acceleration.y * 100) / 100,
+                            z: Math.round(acceleration.z * 100) / 100
                         });
-                    }, options);
+                    }, function(){}, options);
                 } catch (e) {
                     console.log(e.message);
                 }
