@@ -19,7 +19,7 @@
                         deviceVersion: window.device.version
                     });
                 } catch (e) {
-                    console.log(e.message);
+                    alert(e.message);
                 }
             }
         });
