@@ -3,7 +3,7 @@
 
     function f(){
 
-        alert("Hell yeah!");
+        //alert("Hell yeah!");
 
         var InfoModel = Backbone.Model.extend({
             defaults: {
@@ -75,7 +75,7 @@
                 "*pageName": "pageRoute"
             },
             home: function(){
-                this.navigate("menu");
+                appView.page("menu");
             },
             pageRoute: function(pageName){
                 appView.page(pageName);
@@ -84,8 +84,6 @@
         });
 
         var appRouter = new AppRouter();
-
-        //appRouter.navigate("#menu");
 
         Backbone.history.start();
 
