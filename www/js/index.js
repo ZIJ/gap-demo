@@ -1,16 +1,25 @@
 (function(){
     "use strict";
 
+    var readyFired = false;
+
+    // simulating "deviceready" event
     function deviceReady(){
         var evt = document.createEvent('Event');
         evt.initEvent('deviceready', true, true);
         document.dispatchEvent(evt);
     }
 
-    //$(deviceReady);
+    // triggering deviceready simulation
+    setTimeout(function(){
+        if (!readyFired){
+            deviceReady();
+        }
+    }, 1000);
 
     document.addEventListener("deviceready", function(){
 
+        readyFired = true;
 
         var InfoModel = Backbone.Model.extend({
             defaults: {
