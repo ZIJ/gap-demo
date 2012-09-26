@@ -1,9 +1,16 @@
 (function(){
     "use strict";
 
-    function f(){
+    function deviceReady(){
+        var evt = document.createEvent('Event');
+        evt.initEvent('deviceready', true, true);
+        document.dispatchEvent(evt);
+    }
 
-        //alert("Hell yeah!");
+    //$(deviceReady);
+
+    document.addEventListener("deviceready", function(){
+
 
         var InfoModel = Backbone.Model.extend({
             defaults: {
@@ -12,6 +19,9 @@
                 deviceVersion: "Unknown Version"
             },
             initialize: function(){
+                this.update();
+            },
+            update: function(){
                 try {
                     this.set({
                         deviceName: window.device.name,
@@ -19,7 +29,7 @@
                         deviceVersion: window.device.version
                     });
                 } catch (e) {
-                    alert(e.message);
+                    console.log(e.message);
                 }
             }
         });
@@ -87,15 +97,6 @@
 
         Backbone.history.start();
 
-    }
-
-    if (window.device) {
-        document.addEventListener("deviceready", function(){
-            $(f);
-        });
-    } else {
-        $(f);
-    }
-
+    });
 
 }());
