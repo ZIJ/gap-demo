@@ -16,19 +16,37 @@
     <script type="text/javascript" src="js/index.js"></script>
 
     <script id="info-template" type="text/x-handlebars-template">
-        <ul>
-            <li>Name: {{deviceName}}</li>
-            <li>Platform: {{devicePlatform}}</li>
-            <li>Version: {{deviceVersion}}</li>
-        </ul>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>{{deviceName}}</td>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td>{{devicePlatform}}</td>
+            </tr>
+            <tr>
+                <td>Version</td>
+                <td>{{deviceVersion}}</td>
+            </tr>
+        </table>
     </script>
 
     <script id="accelerometer-template" type="text/x-handlebars-template">
-        <ul>
-            <li>X: {{x}}</li>
-            <li>Y: {{y}}</li>
-            <li>Z: {{z}}</li>
-        </ul>
+        <table>
+            <tr>
+                <td>X</td>
+                <td>{{x}} m/s²</td>
+            </tr>
+            <tr>
+                <td>Y</td>
+                <td>{{y}} m/s²</td>
+            </tr>
+            <tr>
+                <td>Z</td>
+                <td>{{z}} m/s²</td>
+            </tr>
+        </table>
     </script>
 
 </head>

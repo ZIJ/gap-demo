@@ -19,6 +19,7 @@ body {
 }
 
 a:link, a:visited {
+    text-decoration:none;
     color: #ffffff;
 }
 
@@ -42,4 +43,30 @@ ul {
     text-align: center;
     line-height: 3em;
     vertical-align: middle;
+}
+
+#menu li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#info table {
+    width: 90%;
+    margin: 5%;
+    line-height: 2em;
+}
+
+#info table td:first-child {
+    color:#d3d3d3;
+}
+
+#accelerometer table {
+    width: 90%;
+    margin: 5%;
+    line-height: 2em;
+}
+
+#accelerometer table td:first-child {
+    color:#d3d3d3;
 }
