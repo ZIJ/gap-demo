@@ -1,6 +1,8 @@
 (function(){
     "use strict";
 
+    //TODO refactor rendering code; maybe se
+
     var readyFired = false;
 
     // simulating "deviceready" event
@@ -20,6 +22,8 @@
     document.addEventListener("deviceready", function(){
 
         readyFired = true;
+
+        /* Info */
 
         var InfoModel = Backbone.Model.extend({
             defaults: {
@@ -57,6 +61,8 @@
 
             }
         });
+
+        /* Accelerometer */
 
         var AccelerometerModel = Backbone.Model.extend({
             defaults: {
@@ -96,7 +102,46 @@
             }
         });
 
+        /* Camera */
 
+        var CameraModel = Backbone.Model.extend({
+            defaults: {
+                lastURI: ""
+            },
+            initialize: function(){
+                var that = this;
+                var options = {
+                    destinationType: Camera.DestinationType.FILE_URI,
+                    targetWidth: 400,
+                    targetHeight: 400
+                };
+                try {
+                    navigator.camera.getPicture(function(uri){
+                        that.set({
+                            lastURI: uri
+                        });
+                    }, function(){}, options);
+                } catch (e) {
+                    console.log(e.message);
+                }
+            }
+        });
+
+        var CameraView = Backbone.View.extend({
+            initialize: function(){
+                this.model.on('change', this.render, this);
+                this.render();
+            },
+            render: function(){
+                var source = $("#camera-template").html();
+                var template = Handlebars.compile(source);
+                var json = this.model.toJSON();
+                var markup = template(json);
+                $(this.el).html(markup);
+            }
+        });
+
+        /* Application */
 
         var AppModel = Backbone.Model.extend({
             initialize: function(){
