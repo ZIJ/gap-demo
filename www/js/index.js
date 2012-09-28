@@ -147,6 +147,7 @@
             initialize: function(){
                 this.info = new InfoModel();
                 this.accelerometer = new AccelerometerModel();
+                this.camera = new CameraModel();
                 console.log("App model created");
             }
         });
@@ -160,12 +161,14 @@
             initialize: function(){
                 this.infoView = new InfoView({model: app.info, el: $("#info")});
                 this.accelerometerView = new AccelerometerView({model: app.accelerometer, el: $("#accelerometer")});
+                this.cameraView = new CameraView({model: app.camera, el: $("#camera")});
                 this.render();
                 console.log("App view created");
             },
             render: function(){
                 this.infoView.render();
                 this.accelerometerView.render();
+                this.cameraView.render();
             },
             page: function(pageName){
                 $(".page").hide();
