@@ -124,7 +124,9 @@
                         this.set({
                             lastURI: uri
                         });
-                    }, function(){}, options);
+                    }, function(errorMessage){
+                        alert(errorMessage);
+                    }, options);
 
                 } catch (e) {
                     console.log(e.message);
