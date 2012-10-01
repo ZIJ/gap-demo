@@ -109,18 +109,23 @@
                 lastURI: ""
             },
             initialize: function(){
+                console.log("camera initialized");
+            },
+            takePicture: function(){
                 var that = this;
-                var options = {
-                    destinationType: Camera.DestinationType.FILE_URI,
-                    targetWidth: 400,
-                    targetHeight: 400
-                };
                 try {
+                    console.log("trying to use camera...");
+                    var options = {
+                        destinationType: Camera.DestinationType.FILE_URI,
+                        targetWidth: 400,
+                        targetHeight: 400
+                    };
                     navigator.camera.getPicture(function(uri){
-                        that.set({
+                        this.set({
                             lastURI: uri
                         });
                     }, function(){}, options);
+
                 } catch (e) {
                     console.log(e.message);
                 }
@@ -138,6 +143,12 @@
                 var json = this.model.toJSON();
                 var markup = template(json);
                 $(this.el).html(markup);
+            },
+            takePicture: function(){
+                this.model.takePicture();
+            },
+            events: {
+                "click .takePictureButton": "takePicture"
             }
         });
 
@@ -161,6 +172,7 @@
             initialize: function(){
                 this.infoView = new InfoView({model: app.info, el: $("#info")});
                 this.accelerometerView = new AccelerometerView({model: app.accelerometer, el: $("#accelerometer")});
+                var cameraEl = $("#camera");
                 this.cameraView = new CameraView({model: app.camera, el: $("#camera")});
                 this.render();
                 console.log("App view created");
